@@ -1,0 +1,11 @@
+backup:
+  build: .
+  ports:
+    - "444:22"
+  volumes:
+    - /etc:/backup/etc:ro
+    - /root:/backup/root:ro
+    - /home:/backup/home:ro
+    - /var:/backup/var:ro
+    - /data:/backup/data:ro
+    - authorized_keys2:/root/authorized_keys2

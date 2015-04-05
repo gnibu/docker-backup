@@ -3,14 +3,14 @@
 
 [ -d /var/run/sshd ] || mkdir /var/run/sshd
 
-if [ ! -r /root/authorized_keys2 ] ;
+if [ ! -r /root/keys/authorized_keys2 ] ;
 then
-    echo "FataLYou must mount /root/authorized_keys2 as a volume"
+    echo "Fatal You must mount /root/keys/authorized_keys2 as a volume"
     exit 1
 fi
 
 mkdir /root/.ssh/
-cp /root/authorized_keys2 /root/.ssh/
+cp /root/keys/authorized_keys2 /root/.ssh/
 chown -R root:root /root/.ssh
 chmod 500 /root/.ssh
 chmod 400 /root/.ssh/authorized_keys2

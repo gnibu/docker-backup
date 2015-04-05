@@ -4,7 +4,8 @@ You can then use rsync to access the container or use
 https://github.com/gnibu/snapshot-backup
 
 
-Here is a sample docker-compose.yml that will instanciate a container
+Here is a sample docker-compose.yml that will instanciate a container. Do put the authorized key file at the same destination place as it will be read by the entrypoint
+keys/authorized_keys2 must be in the container at /root/key/authorized_keys2
 
           backup:
             build: .
@@ -16,4 +17,4 @@ Here is a sample docker-compose.yml that will instanciate a container
                 - /home:/backup/home:ro
                 - /var:/backup/var:ro
                 - /data:/backup/data:ro
-                - authorized_keys2:/root/authorized_keys2
+                - keys:/root/keys
